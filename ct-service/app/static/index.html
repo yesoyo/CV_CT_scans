@@ -3,23 +3,30 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>CT Analyze</title>
+  <title>CT Scan Triage</title>
   <link rel="stylesheet" href="/static/assets/css/styles.css"/>
 </head>
 <body>
-  <main class="container">
-    <h1>CT Analyze</h1>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>CT Scan Triage</h1>
+      <p class="subtitle">Upload a ZIP with DICOM slices and review the predictions.</p>
+    </div>
+  </header>
 
+  <main class="container">
     <section id="uploader" class="card">
+      <h2 class="card-title">ZIP archive with DICOM slices</h2>
       <div id="dropzone" class="dropzone" tabindex="0">
         <p>Перетащи ZIP с DICOM сюда или выбери файл</p>
         <input id="file-input" type="file" accept=".zip"/>
       </div>
+
       <div class="controls">
-        <button id="send-btn" disabled>Отправить</button>
-        <button id="reset-btn">Сброс</button>
+        <button id="send-btn" class="primary" disabled>Analyze scans</button>
+        <button id="reset-btn" class="ghost">Reset</button>
       </div>
-      <div class="limits">Только .zip, до 1 ГБ</div>
+      <p class="note">The archive may contain multiple series. Each series is evaluated independently.</p>
     </section>
 
     <section id="progress" class="card hidden">
@@ -34,10 +41,11 @@
       <div id="warnings" class="warnings"></div>
     </section>
 
+    <div class="model-status">Model weights loaded: <strong id="model-loaded">yes</strong></div>
+
     <footer class="foot">Статика от FastAPI. Конфиг: <code>window.API_BASE</code></footer>
   </main>
 
-  <!-- порядок важен: сначала config, затем приложение -->
   <script type="module" src="/static/assets/js/config.js"></script>
   <script type="module" src="/static/assets/js/app.js"></script>
 </body>

@@ -41,6 +41,9 @@
 3. Запустить сервис:
 
    ```bash
+   cd ct-service
+   python -m uvicorn app.main:app --reload
+   # или
    uvicorn app.main:app --reload
    ```
 
