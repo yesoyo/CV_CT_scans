@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CT Analyze</title>
+  <link rel="stylesheet" href="/static/assets/css/styles.css"/>
+</head>
+<body>
+  <main class="container">
+    <h1>CT Analyze</h1>
+
+    <section id="uploader" class="card">
+      <div id="dropzone" class="dropzone" tabindex="0">
+        <p>Перетащи ZIP с DICOM сюда или выбери файл</p>
+        <input id="file-input" type="file" accept=".zip"/>
+      </div>
+      <div class="controls">
+        <button id="send-btn" disabled>Отправить</button>
+        <button id="reset-btn">Сброс</button>
+      </div>
+      <div class="limits">Только .zip, до 1 ГБ</div>
+    </section>
+
+    <section id="progress" class="card hidden">
+      <div class="bar"><div id="bar-fill" class="bar-fill"></div></div>
+      <div id="bar-text" class="bar-text">0%</div>
+    </section>
+
+    <section id="result" class="card hidden">
+      <h2>Ответ</h2>
+      <pre id="result-json" class="mono"></pre>
+      <a id="report-link" class="btn" href="#" download>Скачать отчёт (.xlsx)</a>
+      <div id="warnings" class="warnings"></div>
+    </section>
+
+    <footer class="foot">Статика от FastAPI. Конфиг: <code>window.API_BASE</code></footer>
+  </main>
+
+  <!-- порядок важен: сначала config, затем приложение -->
+  <script type="module" src="/static/assets/js/config.js"></script>
+  <script type="module" src="/static/assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  ct-service:
+    build: .
+    image: ct-service:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - K_SLICES=5
+      - IMG_SIZE=320
+      - UNCERT_LOW=0.45
+      - UNCERT_HIGH=0.55
+      - DEVICE=cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    volumes:
+      - ./models:/app/models
+      - ./reports:/app/reports
