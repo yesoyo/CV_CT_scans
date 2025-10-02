@@ -108,7 +108,13 @@ app.mount("/static", StaticFiles(directory=str(_STATIC)), name="static")
 
 @app.get("/", include_in_schema=False)
 def index():
+
     idx = _STATIC / "index.html"
     if not idx.exists():
         raise HTTPException(status_code=404, detail="index.html missing")
+        alt_idx = _STATIC / "assets" / "index.html"
+        if alt_idx.exists():
+            idx = alt_idx
+        else:
+            raise HTTPException(status_code=404, detail="index.html missing")
     return FileResponse(str(idx), media_type="text/html")
