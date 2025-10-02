@@ -1,0 +1,168 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --border: #d6deeb;
+  --text: #1a1f2b;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-hover: #1e4ecf;
+  --positive: #c0392b;
+  --negative: #0f9d58;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page-header,
+.page-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.page-header {
+  background: linear-gradient(120deg, #0f172a, #1d4ed8);
+  color: white;
+}
+
+.page-header h1 {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.page-header .tagline {
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.page-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.upload-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+}
+
+.upload-card form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+input[type='file'] {
+  padding: 0.75rem;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+button[type='submit'] {
+  justify-self: start;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button[type='submit']:hover {
+  background: var(--accent-hover);
+}
+
+.hint {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.results {
+  margin-top: 2.5rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mono {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.positive {
+  color: var(--positive);
+  font-weight: 600;
+}
+
+.negative {
+  color: var(--negative);
+  font-weight: 600;
+}
+
+.warnings {
+  margin-top: 2.5rem;
+  background: #fff4e5;
+  border: 1px solid #f1c27d;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.warnings h2 {
+  margin-top: 0;
+}
+
+.warnings ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.page-footer {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
