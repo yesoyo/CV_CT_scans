@@ -39,10 +39,6 @@ def analyze(file: UploadFile = File(...)) -> AnalyzeResp:
     with open(zip_path, "wb") as f:
         shutil.copyfileobj(file.file, f)
 
-    if zip_path.stat().st_size > 1024**3:
-        shutil.rmtree(job_root, ignore_errors=True)
-        raise HTTPException(status_code=413, detail="file too large (>1GB)")
-
     try:
         warnings += extract_zip(zip_path, job_root)
         series_uid, volume_hu, w1 = read_series(job_root)
